@@ -1,0 +1,15 @@
+---
+# tasks file for httpd_role
+- name: Httpd Install
+  yum:  
+    name: httpd
+    state: present
+
+- name: Start Service
+  service:
+    name: httpd
+    state: started
+- name: Copy the Website
+  copy:
+    content: "Hello this is my first Web"
+    dest: "/var/www/html/index.html"
